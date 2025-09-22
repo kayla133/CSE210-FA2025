@@ -7,6 +7,7 @@
 //git status (double check everything is added)
 //git commit -m "(put message in quotes)"
 //git push
+//git status to make sure branch is up to date
 
 //How to Add a new folder
 //change to proper directory using cd and cd ..
