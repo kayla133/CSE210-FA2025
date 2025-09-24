@@ -15,3 +15,45 @@
 //change to that directory
 //dotnet run (This is to run the program to make sure that it works and establish itself in the terminal)
 //Make sure to commit changes to GitHub
+
+
+//While Loop
+// string response = "yes";
+
+// while (response == "yes")
+// {
+//     Console.Write("Do you want to continue? ");
+//     response = Console.ReadLine();
+// }
+
+
+
+//alt + shift + f = Automatically indenting code.
+
+
+//Do-While Loop
+// string response;
+
+// do
+// {
+//     Console.Write("Do you want to continue? ");
+//     response = Console.ReadLine();
+// } while (response == "yes");
+
+
+//For Loop
+// for (int i = 0; i < 10; i++)
+// {
+//     Console.WriteLine(i);
+// }
+
+
+//Foreach Loops
+// foreach (string color in colors)
+// {
+//     Console.WriteLine(color);
+// }
+
+//Random Numbers
+// Random randomGenerator = new Random();
+// int number = randomGenerator.Next(1, 11);
