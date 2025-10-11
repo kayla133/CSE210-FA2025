@@ -33,7 +33,16 @@ class PromptGenerator
         {
             shownPrompt = promptFive;
         }
-        
+
         return shownPrompt;
+    }
+
+    public string journalEntry = "";
+    public string UserJournalEntry()
+    {
+        Console.Write("> ");
+        journalEntry = Console.ReadLine();
+
+        return journalEntry;
     }
 }
