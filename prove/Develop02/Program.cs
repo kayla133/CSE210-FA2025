@@ -10,10 +10,14 @@ class Program
 
         int userChoice = 1;
 
+        int catChoice = 1;
+
         PromptGenerator generator = new PromptGenerator();
         PromptGenerator journal = new PromptGenerator();
 
         Journal myJournal = new Journal();
+
+        Console.WriteLine("Welcome to the Journal Program!");
 
         while (runCode == "yes")
         {
@@ -28,8 +32,13 @@ class Program
 
             if (userChoice == 1)
             {
-                Console.WriteLine(generator.PickPrompt());
+            
+                string shownPrompt = generator.PickPrompt();
+                Console.WriteLine(shownPrompt);
+
                 string entry = journal.UserJournalEntry();
+
+                myJournal.AddEntry(shownPrompt, entry);
             }
             else if (userChoice == 2)
             {
@@ -37,13 +46,15 @@ class Program
             }
             else if (userChoice == 3)
             {
-                Console.Write("Enter filename to load: ");
+                Console.Write("What is the file name? ");
+                Console.WriteLine();
                 string filename = Console.ReadLine();
                 myJournal.LoadFromFile(filename);
             }
             else if (userChoice == 4)
             {
-                Console.Write("Enter filename to save as: ");
+                Console.Write("What is the file name? ");
+                Console.WriteLine();
                 string filename = Console.ReadLine();
                 myJournal.SaveToFile(filename);
             }

@@ -5,9 +5,16 @@ class Journal
 {
     public List<string> entries = new List<string>();
 
-    public void AddEntry(string entry)
+    public string entry = "";
+
+    PromptGenerator generator = new PromptGenerator();
+    PromptGenerator journal = new PromptGenerator();
+
+    public void AddEntry(string prompt, string entry)
     {
-        entries.Add(entry);
+        string dateText = DateTime.Now.ToShortDateString();
+        string fullEntry = $"Date: {dateText} - Prompt: {prompt}\n{entry}\n";
+        entries.Add(fullEntry);
     }
 
     public void SaveToFile(string filename)
@@ -18,9 +25,8 @@ class Journal
             {
                 outputFile.WriteLine(entry);
             }
-        }
 
-        Console.WriteLine($"Entries save to {filename}");
+        }
     }
 
     public void LoadFromFile(string filename)
@@ -34,7 +40,7 @@ class Journal
                 entries.Add(line);
             }
 
-            Console.WriteLine($"Entries loaded from {filename}");
+
         }
         else
         {
@@ -42,7 +48,7 @@ class Journal
         }
     }
     
-    public void DisplayEntries()
+    public string DisplayEntries()
     {
         Console.WriteLine("Your Journal Entries: ");
         foreach (string entry in entries)
@@ -50,5 +56,7 @@ class Journal
             Console.WriteLine(entry);
             Console.WriteLine();
         }
+
+        return entry;
     }
 }
