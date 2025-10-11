@@ -10,8 +10,6 @@ class Program
 
         int userChoice = 1;
 
-        int catChoice = 1;
-
         PromptGenerator generator = new PromptGenerator();
         PromptGenerator journal = new PromptGenerator();
 
