@@ -1,19 +1,29 @@
 using System;
 using System.IO.Enumeration;
-
 class Journal
 {
-    public List<string> entries = new List<string>();
+    // entries: List<entry>
+    public List<Entry> entries = new List<Entry>();
 
-    public string entry = "";
 
+    // prompted generator
     PromptGenerator generator = new PromptGenerator();
     PromptGenerator journal = new PromptGenerator();
 
-    public void AddEntry(string prompt, string entry)
+
+    public void DisplayEntries()
     {
-        string dateText = DateTime.Now.ToShortDateString();
-        string fullEntry = $"Date: {dateText} - Prompt: {prompt}\n{entry}\n";
+        Console.WriteLine("Your Journal Entries: ");
+        foreach (Entry entry in entries)
+        {
+            Console.WriteLine(entry.GetString());
+            Console.WriteLine();
+        }
+
+    }
+
+    public void AddEntry(Entry fullEntry)
+    {
         entries.Add(fullEntry);
     }
 
@@ -21,7 +31,7 @@ class Journal
     {
         using (StreamWriter outputFile = new StreamWriter(filename))
         {
-            foreach (string entry in entries)
+            foreach (Entry entry in entries)
             {
                 outputFile.WriteLine(entry);
             }
@@ -37,7 +47,7 @@ class Journal
 
             foreach (string line in lines)
             {
-                entries.Add(line);
+                // entries.Add(line);
             }
 
 
@@ -47,16 +57,6 @@ class Journal
             Console.WriteLine("File not found.");
         }
     }
-    
-    public string DisplayEntries()
-    {
-        Console.WriteLine("Your Journal Entries: ");
-        foreach (string entry in entries)
-        {
-            Console.WriteLine(entry);
-            Console.WriteLine();
-        }
 
-        return entry;
-    }
+
 }

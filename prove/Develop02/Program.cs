@@ -11,7 +11,7 @@ class Program
         int userChoice = 1;
 
         PromptGenerator generator = new PromptGenerator();
-        PromptGenerator journal = new PromptGenerator();
+    
 
         Journal myJournal = new Journal();
 
@@ -34,9 +34,12 @@ class Program
                 string shownPrompt = generator.PickPrompt();
                 Console.WriteLine(shownPrompt);
 
-                string entry = journal.UserJournalEntry();
+                string entry = generator.UserJournalEntry();
+                Entry userEntry = new Entry();
+                userEntry._prompt = shownPrompt;
+                userEntry._entries = entry;
 
-                myJournal.AddEntry(shownPrompt, entry);
+                myJournal.AddEntry(userEntry);
             }
             else if (userChoice == 2)
             {
