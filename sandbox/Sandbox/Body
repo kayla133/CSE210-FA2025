@@ -1,0 +1,9 @@
+class Dermis : Body
+{
+    //content
+}
+
+class Arrestor : Brake // this is showing that brake is the parent class
+{
+    //content
+}
