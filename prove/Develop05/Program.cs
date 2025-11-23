@@ -1,3 +1,5 @@
+//Creativity: I gave the user the capability to add a priority level. They can choose between High, Medium, and Low. I also added a quote about goals that displays when the user quits the program.
+
 using System;
 
 class Program
