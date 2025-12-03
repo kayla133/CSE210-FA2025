@@ -1,0 +1,2 @@
+0
+Simple Goal: asdf, asdf, 3, False, asdf
