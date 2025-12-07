@@ -4,6 +4,8 @@ class Program
 {
     static void Main(string[] args)
     {
+        Application manager = new Application();
+
         string runCode = "yes";
         int userChoice = 1;
 
@@ -14,15 +16,19 @@ class Program
             Console.WriteLine("1. Enter Meal Plan Application");
             Console.WriteLine("2. Enter Workout Plan Applicaiton");
             Console.WriteLine("3. Quit");
+            Console.Write("What would you like to do? ");
             userChoice = int.Parse(Console.ReadLine());
 
             if (userChoice == 1)
             {
-                
+                Console.Clear();
+                manager.MealMenu();
             }
             else if (userChoice == 2)
             {
-                
+                //call the menu function to run
+                Console.Clear();
+                manager.WorkoutMenu();
             }
             else if (userChoice == 3)
             {

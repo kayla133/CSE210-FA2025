@@ -1,4 +1,4 @@
-class Setup
+public class Setup
 {
     protected string _title;
     protected string _description;
