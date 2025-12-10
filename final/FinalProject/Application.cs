@@ -30,9 +30,25 @@ class Application
             }
             else if (choice == 3)
             {
-                MSave saved = new MSave();
-                string save = saved.SavePlan();
-                Console.WriteLine(save);
+                Console.WriteLine("Options:");
+                Console.WriteLine("1. Save Manual Plan");
+                Console.WriteLine("2. Save Automatic Plan");
+                Console.WriteLine("What Plan would you like to Save?: ");
+                int saveChoice = int.Parse(Console.ReadLine());
+
+                if (saveChoice == 1)
+                {
+                    MSave saved = new MSave();
+                    string save = saved.SavePlan();
+                    Console.WriteLine(save);
+                }
+                else if (choice == 2)
+                {
+                    //enter stuff for auto plan
+                    //MSave saved = new MSave();
+                    //string save = saved.SaveAPlan();
+                    //Console.WriteLine(save);
+                }
             }
             else if (choice == 4)
             {

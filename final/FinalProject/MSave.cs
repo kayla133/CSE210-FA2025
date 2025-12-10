@@ -8,7 +8,7 @@ class MSave : Setup
     { }
     public string SavePlan()
     {
-        Console.Write("What is the filename for the goal file?: ");
+        Console.Write("What is the filename for the plan?: ");
         string filename = Console.ReadLine();
 
         using (StreamWriter outputFile = new StreamWriter(filename))
