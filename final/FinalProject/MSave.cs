@@ -6,6 +6,21 @@ class MSave : Setup
    @"Meal Plan Saved!"
    )
     { }
-    private void SaveMPlan();
-    private void LoadMPlan();
+    public string SavePlan()
+    {
+        Console.Write("What is the filename for the goal file?: ");
+        string filename = Console.ReadLine();
+
+        using (StreamWriter outputFile = new StreamWriter(filename))
+        {
+            outputFile.WriteLine(MPlan.Count);
+            foreach (string planItem in MPlan)
+            {
+                outputFile.WriteLine(planItem);
+            }
+            return"Meal Plan successfully saved.";
+        }       
+    }
 }
+// private void LoadMPlan();
+// }

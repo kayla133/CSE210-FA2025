@@ -2,7 +2,7 @@ class MAutoPlan : Setup
 {
     //random generator
     private static readonly Random Rng = new Random();
-    string mealPlanOutput = "";
+    private List<string> MPlanOutputList = new List<string>();
 
     //create list of breakfast foods
     private List<string> bFoods = new List<string>{"Greek yogurt with honey and berries","Scrambled eggs with spinach & cheese","Overnight oats with chia seeds","Avocado toast with cherry tomatoes","Banana protein smoothie","Cottage cheese with pineapple","Oatmeal with walnuts & cinnamon","Breakfast burrito","Whole-grain waffles with peanut butter","Hard-boiled eggs with fruit","Smoothie bowl with granola","Bagel with cream cheese & cucumbers","Egg white omelet with veggies","Peanut butter & banana toast",
@@ -39,22 +39,30 @@ class MAutoPlan : Setup
     }
     
     //display list
-    public string Display()
+    public List<string> GeneratePlan()
     {
-
+        MPlanOutputList.Clear();
         for (int day = 1; day <= 7; day++)
         {
             string breakfast = RandomMeal(bFoods);
             string lunch = RandomMeal(lFoods);
             string dinner = RandomMeal(dFoods);
 
-            mealPlanOutput += $"Day {day} {Environment.NewLine}";
-            mealPlanOutput += $"    Breakfast: {breakfast}{Environment.NewLine}";
-            mealPlanOutput += $"    Lunch: {lunch}{Environment.NewLine}";
-            mealPlanOutput += $"    Dinner: {dinner}{Environment.NewLine}";
+            MPlanOutputList.Add($"Day {day}");
+            MPlanOutputList.Add($"    Breakfast: {breakfast}");
+            MPlanOutputList.Add($"    Lunch: {lunch}");
+            MPlanOutputList.Add($"    Dinner: {dinner}");
         }
-        return mealPlanOutput.ToString();
+        return MPlanOutputList;
     }
     
+    public string Display()
+    {
+        if (MPlanOutputList.Count == 0)
+        {
+            GeneratePlan();
+        }
 
+        return string.Join(Environment.NewLine, MPlanOutputList);
+    }
 }

@@ -2,7 +2,6 @@ class Application
 {
     string mealRunCode = "yes";
     string workRunCode = "yes";
-    int choice = 1;
     public void MealMenu()
     {
         while (mealRunCode == "yes")
@@ -11,7 +10,7 @@ class Application
             Console.WriteLine("1. Manually Create Plan");
             Console.WriteLine("2. Auto Create Plan");
             Console.WriteLine("3. Save Plan");
-            Console.WriteLine("4. Load and List Plan");
+            Console.WriteLine("4. Load Plan");
             Console.WriteLine("5. Quit");
             Console.Write("What would you like to do?: ");
             int choice = int.Parse(Console.ReadLine());
@@ -31,7 +30,9 @@ class Application
             }
             else if (choice == 3)
             {
-
+                MSave saved = new MSave();
+                string save = saved.SavePlan();
+                Console.WriteLine(save);
             }
             else if (choice == 4)
             {
@@ -69,7 +70,7 @@ class Application
             Console.WriteLine("1. Manually Create Plan");
             Console.WriteLine("2. Auto Create Plan");
             Console.WriteLine("3. Save Plan");
-            Console.WriteLine("4. Load and List Plan");
+            Console.WriteLine("4. Load Plan");
             Console.WriteLine("5. Go to Tracker");
             Console.WriteLine("6. Quit");
             Console.Write("What would you like to do?: ");
